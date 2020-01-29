@@ -11,8 +11,6 @@ export default function ListCard(props) {
           {`${time_of_event} | ${date_of_event}`}
         </Card.Subtitle>
         <Card.Link href={`/events/${id}/view/`}>View</Card.Link>
-        <Card.Link href={`/events/${id}/edit/`}>Update</Card.Link>
-        <Card.Link href="#">Delete</Card.Link>
       </Card.Body>
     </Card>
   );

@@ -21,6 +21,22 @@ export default class EventDetail extends Component {
     });
   }
 
+  onDelete = (e, id) => {
+    e.preventDefault();
+    axios
+      .delete(`https://cryptic-refuge-20742.herokuapp.com/events/${id}/`)
+      .then(response => {
+        if (response.status === 204) {
+          alert('Success');
+          this.props.history.push(`/events/`);
+        }
+      })
+      .catch(error => {
+        alert('Error, check console.');
+        console.log(error.response);
+      });
+  };
+
   render() {
     const { isFetched, eventData } = this.state;
     if (!isFetched) {
@@ -38,7 +54,9 @@ export default class EventDetail extends Component {
                 </Card.Subtitle>
                 <Card.Text>{eventData.description}</Card.Text>
                 <Card.Link href={`/events/${eventData.id}/edit/`}>Update</Card.Link>
-                <Card.Link href="#">Delete</Card.Link>
+                <Card.Link href="#" onClick={e => this.onDelete(e, eventData.id)}>
+                  Delete
+                </Card.Link>
               </Card.Body>
             </Card>
           </Col>
