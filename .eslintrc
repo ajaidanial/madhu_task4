@@ -19,8 +19,10 @@
     ],
     "prefer-promise-reject-errors": ["off"],
     "react/jsx-filename-extension": ["off"],
-    "react/prop-types": ["warn"],
+    "react/prop-types": ["off"],
     "react/prefer-stateless-function": ["off"],
+    "react/destructuring-assignment": ["off"],
+    "camelcase": ["off"],
     "no-return-assign": ["off"]
   }
 }
